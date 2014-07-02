@@ -1,0 +1,13 @@
+local tac
+if which tac > /dev/null; then
+  tac="tac"
+else
+  tac="tail -r"
+fi
+
+history -n 1 | ${=tac}
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

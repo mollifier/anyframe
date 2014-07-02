@@ -1,0 +1,6 @@
+anyframe-execute "history" "peco" "put"
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

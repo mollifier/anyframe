@@ -1,8 +1,8 @@
 local lbuffer="$1"
 if [[ -n "$lbuffer" ]]; then
-  peco --query "$1"
+  percol --query "$1"
 else
-  peco
+  percol
 fi
 
 # Local Variables:

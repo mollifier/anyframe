@@ -1,7 +1,7 @@
 
 local -a static_functions
 static_functions=(
-  anyframe-execute
+  anyframe
 )
 
 local func
@@ -19,7 +19,7 @@ for dir in ${^fpath}/anyframe-functions/{actions,selectors,sources}(N-/); do
   done
 done
 
-for dir in ${^fpath}/anyframe-functions/units(N-/); do
+for dir in ${^fpath}/anyframe-functions/widgets(N-/); do
   fpath=($fpath $dir)
 
   for file in $dir/*(N-.); do

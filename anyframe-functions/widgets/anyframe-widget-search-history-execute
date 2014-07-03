@@ -1,0 +1,6 @@
+anyframe "anyframe-source-history" "anyframe-selector-peco" "anyframe-action-execute"
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

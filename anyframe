@@ -1,6 +1,6 @@
-local source="anyframe-source-$1"
-local selector="anyframe-selector-$2"
-local action="anyframe-action-$3"
+local source="$1"
+local selector="$2"
+local action="$3"
 
 local selected_item="$($source | $selector "$LBUFFER")"
 $action "$selected_item"

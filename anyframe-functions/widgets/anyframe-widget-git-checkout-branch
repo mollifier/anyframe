@@ -1,0 +1,9 @@
+anyframe-source-git-branch | \
+  anyframe-selector-peco | \
+  awk '{print $1}' | \
+  anyframe anyframe-action-git-checkout-branch
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

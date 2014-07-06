@@ -1,0 +1,6 @@
+git branch --list -v | grep -v '^\*'
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

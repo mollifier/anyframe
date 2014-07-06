@@ -1,4 +1,6 @@
-anyframe "anyframe-source-history" "anyframe-selector-peco" "anyframe-action-put"
+anyframe-source-history | \
+  anyframe-selector-peco | \
+  anyframe anyframe-action-put
 
 # Local Variables:
 # mode: Shell-Script

@@ -1,0 +1,21 @@
+# insert selected_item to current commandline buffer
+# add space between with LBUFFER or RBUFFER if needed
+
+local selected_item=$1
+
+if zle; then
+  if [[ "$LBUFFER" != *' ' ]]; then
+    selected_item=" $selected_item"
+  fi
+  if [[ "$RBUFFER" != ' '* ]]; then
+    selected_item="$selected_item "
+  fi
+
+  LBUFFER+="$selected_item"
+  CURSOR=$#BUFFER
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

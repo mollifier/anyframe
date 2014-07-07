@@ -1,0 +1,10 @@
+anyframe-source-git-branch | \
+  anyframe-selector-peco | \
+  sed 's/^\*//' | \
+  awk '{print $1}' | \
+  anyframe anyframe-action-insert
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

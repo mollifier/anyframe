@@ -1,0 +1,13 @@
+local selected_item=$1
+
+if zle; then
+  BUFFER="cd -- $selected_item"
+  zle accept-line
+else
+  cd -- $selected_item
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

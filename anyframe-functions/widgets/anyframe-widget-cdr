@@ -1,0 +1,8 @@
+anyframe-source-cdr | \
+  anyframe-selector-peco | \
+  anyframe anyframe-action-cd
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

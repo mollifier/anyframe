@@ -1,0 +1,6 @@
+cdr -l | sed 's/^[^ ][^ ]*  *//'
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

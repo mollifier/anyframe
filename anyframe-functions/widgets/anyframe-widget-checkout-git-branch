@@ -1,7 +1,8 @@
 anyframe-source-git-branch | \
+  grep -v '^\*' | \
   anyframe-selector-peco | \
   awk '{print $1}' | \
-  anyframe anyframe-action-git-checkout-branch
+  anyframe anyframe-action-checkout-git-branch
 
 # Local Variables:
 # mode: Shell-Script

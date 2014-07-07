@@ -1,4 +1,4 @@
-git branch --list -v | grep -v '^\*'
+git branch --list -v
 
 # Local Variables:
 # mode: Shell-Script

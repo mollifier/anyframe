@@ -20,7 +20,6 @@ If you use [Antigen](https://github.com/zsh-users/antigen), add the following li
 
 ```
 antigen bundle mollifier/anyframe
-anyframe-init
 ```
 
 ```

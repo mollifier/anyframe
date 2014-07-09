@@ -1,0 +1,6 @@
+ghq list --full-path
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

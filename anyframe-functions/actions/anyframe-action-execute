@@ -1,11 +1,19 @@
-local selected_item=$1
+function _anyframe-action-execute()
+{
+  if zle; then
+    BUFFER="$*"
+    zle accept-line
+  else
+    "$@"
+  fi
+}
 
-if zle; then
-  BUFFER="$selected_item"
-  zle accept-line
-else
-  ${=selected_item}
+local selected_item="$(cat)"
+if [[ -z "$selected_item" ]]; then
+  return 1
 fi
+
+_anyframe-action-execute "$@" "$selected_item"
 
 # Local Variables:
 # mode: Shell-Script

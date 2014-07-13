@@ -1,6 +1,6 @@
 anyframe-source-cdr | \
   anyframe-selector-peco | \
-  anyframe anyframe-action-cd
+  anyframe-action-execute cd --
 
 # Local Variables:
 # mode: Shell-Script

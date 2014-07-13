@@ -1,6 +1,5 @@
-anyframe-source-git-branch | \
+anyframe-source-git-branch -i | \
   anyframe-selector-peco | \
-  sed 's/^\*//' | \
   awk '{print $1}' | \
   anyframe-action-insert
 

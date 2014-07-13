@@ -1,5 +1,4 @@
-anyframe-source-git-branch | \
-  grep -v '^\*' | \
+anyframe-source-git-branch -n | \
   anyframe-selector-peco | \
   awk '{print $1}' | \
   anyframe-action-execute git checkout

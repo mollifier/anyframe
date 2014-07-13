@@ -1,19 +1,28 @@
 # insert selected_item to current commandline buffer
 # add space between with LBUFFER or RBUFFER if needed
+function _anyframe-action-insert()
+{
+  if zle; then
+    if [[ -n "$LBUFFER" && "$LBUFFER" != *' ' ]]; then
+      # LBUFFER dosen't end with space
+      selected_item=" $selected_item"
+    fi
+    if [[ -n "$RBUFFER" && "$RBUFFER" != ' '* ]]; then
+      # RBUFFER dosen't start with space
+      selected_item="$selected_item "
+    fi
 
-local selected_item=$1
-
-if zle; then
-  if [[ "$LBUFFER" != *' ' ]]; then
-    selected_item=" $selected_item"
+    LBUFFER+="$selected_item"
+    CURSOR=$#BUFFER
   fi
-  if [[ "$RBUFFER" != ' '* ]]; then
-    selected_item="$selected_item "
-  fi
+}
 
-  LBUFFER+="$selected_item"
-  CURSOR=$#BUFFER
+local selected_item="$(cat)"
+if [[ -z "$selected_item" ]]; then
+  return 1
 fi
+
+_anyframe-action-insert "$@" "$selected_item"
 
 # Local Variables:
 # mode: Shell-Script

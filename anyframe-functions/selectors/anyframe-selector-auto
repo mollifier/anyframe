@@ -1,0 +1,13 @@
+if which peco > /dev/null 2>&1; then
+  anyframe-selector-peco "$1"
+elif which percol > /dev/null 2>&1; then
+  anyframe-selector-percol "$1"
+else
+  echo "anyframe: not found peco nor percol" 1>&2
+  return 1
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

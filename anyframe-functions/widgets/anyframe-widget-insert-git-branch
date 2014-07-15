@@ -1,5 +1,5 @@
 anyframe-source-git-branch -i | \
-  anyframe-selector-peco | \
+  anyframe-selector-auto | \
   awk '{print $1}' | \
   anyframe-action-insert
 

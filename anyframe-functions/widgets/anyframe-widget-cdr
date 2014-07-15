@@ -1,5 +1,5 @@
 anyframe-source-cdr | \
-  anyframe-selector-peco | \
+  anyframe-selector-auto | \
   anyframe-action-execute cd --
 
 # Local Variables:

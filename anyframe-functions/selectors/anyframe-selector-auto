@@ -1,3 +1,8 @@
+# Usage : anyframe-selector-auto [query]
+# Launch peco or percol
+#
+# query : pre-input query
+
 if which peco > /dev/null 2>&1; then
   anyframe-selector-peco "$1"
 elif which percol > /dev/null 2>&1; then

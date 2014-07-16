@@ -1,5 +1,4 @@
-local lbuffer="$1"
-if [[ -n "$lbuffer" ]]; then
+if [[ -n "$1" ]]; then
   peco --query "$1"
 else
   peco

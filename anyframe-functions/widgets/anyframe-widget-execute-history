@@ -1,5 +1,5 @@
 anyframe-source-history | \
-  anyframe-selector-auto | \
+  anyframe-selector-auto "$LBUFFER" | \
   anyframe-action-execute
 
 # Local Variables:

@@ -1,3 +1,5 @@
+# require ghq (https://github.com/motemen/ghq)
+
 ghq list --full-path
 
 # Local Variables:

@@ -2,7 +2,9 @@ function _anyframe-action-insert()
 {
   if zle; then
     LBUFFER+="$*"
-    CURSOR=$#BUFFER
+    CURSOR=$#LBUFFER
+    # redisplay the command line
+    zle -R -c
   fi
 }
 

@@ -1,11 +1,6 @@
-local tac
-if which tac > /dev/null; then
-  tac="tac"
-else
-  tac="tail -r"
-fi
-
-history -n 1 | ${=tac}
+# -r : reverses the order of the commands
+# -n : suppresses command numbers
+history -n -r 1
 
 # Local Variables:
 # mode: Shell-Script

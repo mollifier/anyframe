@@ -3,6 +3,8 @@ function _anyframe-action-execute()
   if zle; then
     BUFFER="$*"
     zle accept-line
+    # redisplay the command line
+    zle -R -c
   else
     eval "$*"
   fi

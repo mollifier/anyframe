@@ -3,6 +3,8 @@ function _anyframe-action-put()
   if zle; then
     BUFFER="$*"
     CURSOR=$#BUFFER
+    # redisplay the command line
+    zle -R -c
   fi
 }
 

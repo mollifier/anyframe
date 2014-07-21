@@ -10,12 +10,13 @@ function _anyframe-action-execute()
   fi
 }
 
-local selected_item="$(cat)"
-if [[ -z "$selected_item" ]]; then
+local selected_items
+selected_items="$(cat)"
+if [[ -z "$selected_items" ]]; then
   return 1
 fi
 
-_anyframe-action-execute "$@" "$selected_item"
+_anyframe-action-execute "$@" "${(f)selected_items}"
 
 # Local Variables:
 # mode: Shell-Script

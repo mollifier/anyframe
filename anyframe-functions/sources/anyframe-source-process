@@ -1,0 +1,6 @@
+ps aux
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

@@ -1,4 +1,4 @@
-ps aux
+ps -u $USER -o pid,stat,%cpu,%mem,cputime,command
 
 # Local Variables:
 # mode: Shell-Script

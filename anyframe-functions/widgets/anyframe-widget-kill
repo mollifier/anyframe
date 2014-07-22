@@ -1,6 +1,6 @@
 anyframe-source-process | \
   anyframe-selector-auto | \
-  awk '{print $2}' | \
+  awk '{print $1}' | \
   anyframe-action-execute kill
 
 # Local Variables:

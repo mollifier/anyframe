@@ -3,13 +3,26 @@
 #
 # query : pre-input query
 
-if which peco > /dev/null 2>&1; then
+# specify peco or percol
+local selector_mode=''
+zstyle -s ":anyframe:selector:" use selector_mode || selector_mode=''
+
+if [[ $selector_mode != 'peco' ]] && [[ $selector_mode != 'percol' ]]; then
+  # selector isn't specified
+  if which peco > /dev/null 2>&1; then
+    selector_mode='peco'
+  elif which percol > /dev/null 2>&1; then
+    selector_mode='percol'
+  else
+    echo "anyframe: not found peco nor percol" 1>&2
+    return 1
+  fi
+fi
+
+if [[ "$selector_mode" == 'peco' ]]; then
   anyframe-selector-peco "$1"
-elif which percol > /dev/null 2>&1; then
+elif [[ "$selector_mode" == 'percol' ]]; then
   anyframe-selector-percol "$1"
-else
-  echo "anyframe: not found peco nor percol" 1>&2
-  return 1
 fi
 
 # Local Variables:

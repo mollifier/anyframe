@@ -4,11 +4,30 @@
 
 ## How to set up
 
+First of all, you need to install [peco](https://github.com/peco/peco) or [percol](https://github.com/mooz/percol)
+
 ### Manually install
 
 Put all files somewhere in your $fpath, and add the following lines to your .zshrc:
 
 ```
+autoload -Uz anyframe-init
+anyframe-init
+```
+
+#### For example
+
+```
+# download all files
+% cd /path/to/dir
+% git clone https://github.com/mollifier/anyframe
+```
+
+And add the following lines to your .zshrc:
+
+```
+fpath=(/path/to/dir/anyframe(N-/) $fpath)
+
 autoload -Uz anyframe-init
 anyframe-init
 ```
@@ -27,13 +46,27 @@ For example, add the following lines to your .zshrc:
 
 ```
 bindkey '^xb' anyframe-widget-cdr
+bindkey '^x^b' anyframe-widget-checkout-git-branch
+
+bindkey '^xr' anyframe-widget-execute-history
 bindkey '^x^r' anyframe-widget-execute-history
+
+bindkey '^xi' anyframe-widget-put-history
 bindkey '^x^i' anyframe-widget-put-history
+
+bindkey '^xg' anyframe-widget-cd-ghq-repository
+bindkey '^x^g' anyframe-widget-cd-ghq-repository
+
+bindkey '^xk' anyframe-widget-kill
+bindkey '^x^k' anyframe-widget-kill
+
+bindkey '^xe' anyframe-widget-insert-git-branch
+bindkey '^x^e' anyframe-widget-insert-git-branch
 ```
 
 ## Requirement
-Some widgets requires external commands.
 
+Some widgets requires external commands.
 
 ### anyframe-widget-cdr
 require cdr
@@ -53,7 +86,18 @@ require [ghq](https://github.com/motemen/ghq)
 
 ## Usage
 
-## Variables
+## Configurations
+
+```
+# expressly specify to use peco
+zstyle ":anyframe:selector:" use peco
+# expressly specify to use percol
+zstyle ":anyframe:selector:" use percol
+
+# specify peco or percol path and options
+zstyle ":anyframe:selector:peco:" command 'peco --no-ignore-case'
+zstyle ":anyframe:selector:percol:" command 'percol --case-sensitive'
+```
 
 ## Examples
 

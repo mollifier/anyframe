@@ -1,7 +1,10 @@
+local peco_path percol_path
+zstyle -s ":anyframe:selector:percol:" command percol_path || percol_path='percol'
+
 if [[ -n "$1" ]]; then
-  percol --query "$1"
+  ${=percol_path} --query "$1"
 else
-  percol
+  ${=percol_path}
 fi
 
 # Local Variables:

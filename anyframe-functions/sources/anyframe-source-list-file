@@ -1,0 +1,18 @@
+# anyframe-source-list-file
+# or
+# anyframe-source-list-file "$BUFFER"
+
+local dir="$PWD"
+local buffer="$1"
+buffer="$(echo $buffer | sed 's/^  *//' | sed 's/  *$//')"
+
+if [[ -n "$buffer" ]]; then
+  local dir="${buffer##* }"
+fi
+
+ls -- "$dir"
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

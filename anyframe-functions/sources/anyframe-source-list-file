@@ -2,12 +2,20 @@
 # or
 # anyframe-source-list-file "$BUFFER"
 
-local dir="$PWD"
 local buffer="$1"
-buffer="$(echo $buffer | sed 's/^  *//' | sed 's/  *$//')"
+local dir="$PWD"
 
 if [[ -n "$buffer" ]]; then
-  local dir="${buffer##* }"
+  if [[ "$buffer" == *\  ]]; then
+    # buffer ends with space
+    :
+  else
+    local trim_buffer="$(echo $buffer | sed 's/^  *//' | sed 's/  *$//')"
+    local last_argument="${trim_buffer##* }"
+
+    # get dirname
+    dir="${last_argument%/*}"
+  fi
 fi
 
 ls -- "$dir"

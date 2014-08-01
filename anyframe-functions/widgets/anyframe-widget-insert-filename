@@ -1,0 +1,8 @@
+anyframe-source-list-file "$BUFFER" | \
+  anyframe-selector-auto | \
+  anyframe-action-insert
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

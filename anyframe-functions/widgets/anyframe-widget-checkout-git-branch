@@ -1,7 +1,7 @@
-anyframe-source-git-branch -n | \
-  anyframe-selector-auto | \
-  awk '{print $1}' | \
-  anyframe-action-execute git checkout
+anyframe-source-git-branch -n \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-execute git checkout
 
 # Local Variables:
 # mode: Shell-Script

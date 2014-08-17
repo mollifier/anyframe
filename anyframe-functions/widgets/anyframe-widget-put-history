@@ -1,6 +1,6 @@
-anyframe-source-history | \
-  anyframe-selector-auto "$LBUFFER" | \
-  anyframe-action-put
+anyframe-source-history \
+  | anyframe-selector-auto "$LBUFFER" \
+  | anyframe-action-put
 
 # Local Variables:
 # mode: Shell-Script

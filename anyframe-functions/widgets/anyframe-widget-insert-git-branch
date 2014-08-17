@@ -1,7 +1,7 @@
-anyframe-source-git-branch -i | \
-  anyframe-selector-auto | \
-  awk '{print $1}' | \
-  anyframe-action-insert
+anyframe-source-git-branch -i \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-insert
 
 # Local Variables:
 # mode: Shell-Script

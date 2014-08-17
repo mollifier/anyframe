@@ -21,16 +21,16 @@ while getopts ':in' option; do
 done
 shift $(expr $OPTIND - 1)
 
-git branch --list -v | \
-{
+git branch --list -v \
+| {
   if [[ "$include_current_branch" == "1" ]]; then
     sed 's/^\*//'
   else
     # remove current branch name
     grep -v '^\*'
   fi
-} | \
-sed 's/^  *//'
+} \
+| sed 's/^  *//'
 
 # Local Variables:
 # mode: Shell-Script

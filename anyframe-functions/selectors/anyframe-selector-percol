@@ -1,8 +1,8 @@
 local peco_path percol_path
 zstyle -s ":anyframe:selector:percol:" command percol_path || percol_path='percol'
 
-if [[ -n "$1" ]]; then
-  ${=percol_path} --query "$1"
+if [[ $# -gt 0 ]]; then
+  ${=percol_path} --query "$@"
 else
   ${=percol_path}
 fi

@@ -1,8 +1,8 @@
 local peco_path
 zstyle -s ":anyframe:selector:peco:" command peco_path || peco_path='peco'
 
-if [[ -n "$1" ]]; then
-  ${=peco_path} --query "$1"
+if [[ $# -gt 0 ]]; then
+  ${=peco_path} --query "$@"
 else
   ${=peco_path}
 fi

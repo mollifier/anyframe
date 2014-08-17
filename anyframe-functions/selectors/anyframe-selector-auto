@@ -1,7 +1,10 @@
-# Usage : anyframe-selector-auto [query]
+# Usage : anyframe-selector-auto [query] [options]...
 # Launch peco or percol
 #
 # query : pre-input query
+# options : specify additional options for peco or percol
+#
+# Example : anyframe-selector-auto "$LBUFFER" --initial-index 1
 
 # specify peco or percol
 local selector_mode=''
@@ -20,9 +23,9 @@ if [[ $selector_mode != 'peco' ]] && [[ $selector_mode != 'percol' ]]; then
 fi
 
 if [[ "$selector_mode" == 'peco' ]]; then
-  anyframe-selector-peco "$1"
+  anyframe-selector-peco "$@"
 elif [[ "$selector_mode" == 'percol' ]]; then
-  anyframe-selector-percol "$1"
+  anyframe-selector-percol "$@"
 fi
 
 # Local Variables:

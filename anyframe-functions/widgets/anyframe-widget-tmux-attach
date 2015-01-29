@@ -1,0 +1,9 @@
+anyframe-source-tmux-sessions \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-execute tmux attach -t
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

@@ -1,0 +1,8 @@
+anyframe-source-widgets \
+  | anyframe-selector-auto \
+  | anyframe-action-execute
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

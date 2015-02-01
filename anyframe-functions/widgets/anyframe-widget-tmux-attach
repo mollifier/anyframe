@@ -1,6 +1,6 @@
 anyframe-source-tmux-sessions \
   | anyframe-selector-auto \
-  | awk '{print $1}' \
+  | cut -d ':' -f 1 \
   | anyframe-action-execute tmux attach -t
 
 # Local Variables:

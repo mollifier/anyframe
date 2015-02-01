@@ -1,0 +1,8 @@
+# anyframe-source-tmux-sessions
+
+tmux list-sessions
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

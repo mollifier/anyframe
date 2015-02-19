@@ -5,6 +5,8 @@ function _anyframe-action-put()
     CURSOR=$#BUFFER
     # redisplay the command line
     zle -R -c
+  else
+    print -z "$*"
   fi
 }
 

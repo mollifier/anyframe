@@ -1,5 +1,10 @@
-anyframe-source-widgets \
+anyframe-source-all-widgets \
+  | grep -v 'anyframe-all-widgets' \
+  | sed 's/^anyframe-widget-//' \
+  | sort \
+  | uniq \
   | anyframe-selector-auto \
+  | sed 's/^/anyframe-widget-/' \
   | anyframe-action-execute
 
 # Local Variables:

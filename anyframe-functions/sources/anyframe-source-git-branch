@@ -14,7 +14,7 @@ while getopts ':in' option; do
     include_current_branch="0"
     ;;
   *)
-    echo "$SCRIPT_NAME: invalid option -- $OPTARG" 1>&2
+    echo "$0: invalid option -- $OPTARG" 1>&2
     return 1
     ;;
   esac

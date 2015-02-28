@@ -1,5 +1,5 @@
 anyframe-source-all-widgets \
-  | grep -v '^anyframe-all-widgets$' \
+  | grep -v '^anyframe-widget-select-widget$' \
   | sed 's/^anyframe-widget-//' \
   | anyframe-selector-auto \
   | sed 's/^/anyframe-widget-/' \

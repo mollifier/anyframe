@@ -1,0 +1,11 @@
+{
+  local dir
+  for dir in  ${^fpath}/anyframe-functions/widgets(N-/); do
+    ls -1 $dir
+  done
+} | sort | uniq
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

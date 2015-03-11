@@ -1,0 +1,24 @@
+function _anyframe-action-insert-quoted()
+{
+  if zle; then
+    LBUFFER+="${(q)*}"
+    CURSOR=$#LBUFFER
+    # redisplay the command line
+    zle -R -c
+  else
+    print -z "$*"
+  fi
+}
+
+local selected_items
+selected_items="$(cat)"
+if [[ -z "$selected_items" ]]; then
+  return 1
+fi
+
+_anyframe-action-insert-quoted "$@" "${(f)selected_items}"
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

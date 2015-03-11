@@ -1,8 +1,8 @@
 # Usage : anyframe-selector-auto [query] [options]...
-# Launch peco or percol
+# Launch peco, percol, or fzf
 #
 # query : pre-input query
-# options : specify additional options for peco or percol
+# options : specify additional options for peco, percol, or fzf
 #
 # Example : anyframe-selector-auto "$LBUFFER" --initial-index 1
 
@@ -10,14 +10,18 @@
 local selector_mode=''
 zstyle -s ":anyframe:selector:" use selector_mode || selector_mode=''
 
-if [[ $selector_mode != 'peco' ]] && [[ $selector_mode != 'percol' ]]; then
+if [[ $selector_mode != 'peco' ]] &&
+   [[ $selector_mode != 'percol' ]] &&
+   [[ $selector_mode != 'fzf' ]]; then
   # selector isn't specified
   if which peco > /dev/null 2>&1; then
     selector_mode='peco'
   elif which percol > /dev/null 2>&1; then
     selector_mode='percol'
+  elif which fzf > /dev/null 2>&1; then
+    selector_mode='fzf'
   else
-    echo "anyframe: not found peco nor percol" 1>&2
+    echo "anyframe: not found any of peco, percol, or fzf" 1>&2
     return 1
   fi
 fi
@@ -26,6 +30,8 @@ if [[ "$selector_mode" == 'peco' ]]; then
   anyframe-selector-peco "$@"
 elif [[ "$selector_mode" == 'percol' ]]; then
   anyframe-selector-percol "$@"
+elif [[ "$selector_mode" == 'fzf' ]]; then
+  anyframe-selector-fzf "$@"
 fi
 
 # Local Variables:

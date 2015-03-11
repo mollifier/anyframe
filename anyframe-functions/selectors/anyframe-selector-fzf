@@ -1,0 +1,13 @@
+local fzf_path
+zstyle -s ":anyframe:selector:fzf:" command fzf_path || fzf_path='fzf'
+
+if [[ $# -gt 0 ]]; then
+  ${=fzf_path} --query "$@"
+else
+  ${=fzf_path}
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

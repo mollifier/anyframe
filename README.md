@@ -99,7 +99,7 @@ zstyle ":anyframe:selector:" use fzf
 # specify path and options for peco, percol, or fzf
 zstyle ":anyframe:selector:peco:" command 'peco --no-ignore-case'
 zstyle ":anyframe:selector:percol:" command 'percol --case-sensitive'
-zstyle ":anyframe:selector:percol:" command 'fzf --extended'
+zstyle ":anyframe:selector:fzf:" command 'fzf --extended'
 ```
 
 ## Examples

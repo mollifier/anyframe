@@ -1,6 +1,6 @@
 anyframe-source-list-file "$BUFFER" \
   | anyframe-selector-auto \
-  | anyframe-action-insert
+  | anyframe-action-insert -q
 
 # Local Variables:
 # mode: Shell-Script

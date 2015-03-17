@@ -1,3 +1,8 @@
+# anyframe-action-insert [-q|-Q]
+# Options
+# -q : quote special characters in the resulting words with backslashes
+# -Q : not quote special characters with backslashes [Default]
+
 function _anyframe-action-insert()
 {
   if zle; then
@@ -6,9 +11,27 @@ function _anyframe-action-insert()
     # redisplay the command line
     zle -R -c
   else
-    print -z "$*"
+    print -z -f '%s' "$*"
   fi
 }
+
+local quote_item="0"
+local option OPTARG OPTIND
+while getopts ':q' option; do
+  case $option in
+  q)
+    quote_item="1"
+    ;;
+  Q)
+    quote_item="0"
+    ;;
+  *)
+    echo "$0: invalid option -- $OPTARG" 1>&2
+    return 1
+    ;;
+  esac
+done
+shift $((OPTIND - 1))
 
 local selected_items
 selected_items="$(cat)"
@@ -16,7 +39,12 @@ if [[ -z "$selected_items" ]]; then
   return 1
 fi
 
-_anyframe-action-insert "$@" "${(f)selected_items}"
+if [[ "$quote_item" == "1" ]]; then
+  # (q) : Quote characters that are special to the shell in the resulting words with backslashes
+  _anyframe-action-insert "${(q)@}" "${(fq)selected_items}"
+else
+  _anyframe-action-insert "$@" "${(f)selected_items}"
+fi
 
 # Local Variables:
 # mode: Shell-Script

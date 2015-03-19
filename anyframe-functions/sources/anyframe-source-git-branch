@@ -2,16 +2,26 @@
 # Options
 # -i  include current branch name in output [Default]
 # -n  not include current branch name in output
+# -a  include both remote-tracking branches and local branches
+# -r  only remote-tracking branches
 
 local include_current_branch="1"
 local option OPTARG OPTIND
-while getopts ':in' option; do
+local git_option
+git_option=("--list" "-v")
+while getopts ':inar' option; do
   case $option in
   i)
     include_current_branch="1"
     ;;
   n)
     include_current_branch="0"
+    ;;
+  a)
+    git_option+=("-a")
+    ;;
+  r)
+    git_option+=("-r")
     ;;
   *)
     echo "$0: invalid option -- $OPTARG" 1>&2
@@ -21,7 +31,7 @@ while getopts ':in' option; do
 done
 shift $(expr $OPTIND - 1)
 
-git branch --list -v \
+git branch $git_option \
 | {
   if [[ "$include_current_branch" == "1" ]]; then
     sed 's/^\*//'

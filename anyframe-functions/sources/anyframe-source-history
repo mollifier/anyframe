@@ -1,6 +1,7 @@
 # -r : reverses the order of the commands
 # -n : suppresses command numbers
-history -n -r 1
+# '!a[$0]++' : prints unique lines
+history -n -r 1 | awk '!a[$0]++'
 
 # Local Variables:
 # mode: Shell-Script

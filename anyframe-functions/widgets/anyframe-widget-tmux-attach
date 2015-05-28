@@ -1,7 +1,7 @@
 anyframe-source-tmux-sessions \
   | anyframe-selector-auto \
   | cut -d ':' -f 1 \
-  | anyframe-action-execute tmux attach -t
+  | anyframe-action-execute -d tmux attach -t
 
 # Local Variables:
 # mode: Shell-Script

@@ -1,7 +1,8 @@
-# anyframe-action-execute [-q|-Q]
+# anyframe-action-execute [-q|-Q|-d]
 # Options
 # -q : quote special characters in the resulting words with backslashes
 # -Q : not quote special characters with backslashes [Default]
+# -d : use double quote to embrace selected items
 
 function _anyframe-action-execute()
 {
@@ -16,14 +17,18 @@ function _anyframe-action-execute()
 }
 
 local quote_item="0"
+local use_double_quote="0"
 local option OPTARG OPTIND
-while getopts ':q' option; do
+while getopts ':q:d' option; do
   case $option in
   q)
     quote_item="1"
     ;;
   Q)
     quote_item="0"
+    ;;
+  d)
+    use_double_quote="1"
     ;;
   *)
     echo "$0: invalid option -- $OPTARG" 1>&2
@@ -39,11 +44,16 @@ if [[ -z "$selected_items" ]]; then
   return 1
 fi
 
+local dquote=""
+if [[ "$use_double_quote" == "1" ]]; then
+  dquote="\""
+fi
+
 if [[ "$quote_item" == "1" ]]; then
   # (q) : Quote characters that are special to the shell in the resulting words with backslashes
-  _anyframe-action-execute "${(q)@}" "${(fq)selected_items}"
+  _anyframe-action-execute "${(q)@}" "${dquote}""${(fq)selected_items}""${dquote}"
 else
-  _anyframe-action-execute "$@" "${(f)selected_items}"
+  _anyframe-action-execute "$@" "${dquote}""${(f)selected_items}""${dquote}"
 fi
 
 

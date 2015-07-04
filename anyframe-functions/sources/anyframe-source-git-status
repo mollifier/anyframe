@@ -1,0 +1,15 @@
+# anyframe-source-git-status
+# Args:
+#   Regulaer expressions for grep
+
+# replace / with \/
+local base_path="$(git rev-parse --show-cdup | sed 's%/%\\/%g')"
+
+git status --porcelain |
+  sed "s/^\(..\) /\1\t${base_path}/" |  # convert file path to relative path
+  grep "^$1"
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

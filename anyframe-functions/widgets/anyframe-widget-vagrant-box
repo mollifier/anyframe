@@ -1,0 +1,20 @@
+local command
+local options
+
+command=$(anyframe-source-vagrant-list-commands -b \
+             | anyframe-selector-auto \
+             | awk '{print $1}')
+
+if [[ "$command" -eq "update" ]]; then
+  options="--box"
+fi
+
+anyframe-source-vagrant-box-list \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-put vagrant box ${command} ${options}
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

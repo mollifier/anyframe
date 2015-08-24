@@ -1,0 +1,14 @@
+# require vagrant
+
+if type vagrant-global-status > /dev/null 2>&1; then
+  # faster than ` vagrant global-status`
+  # see -> https://github.com/monochromegane/vagrant-global-status
+  vagrant-global-status
+else
+  vagrant global-status | awk '/^[[:alnum:]]{7} /'
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

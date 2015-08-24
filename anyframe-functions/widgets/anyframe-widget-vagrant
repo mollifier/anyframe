@@ -1,0 +1,14 @@
+local command
+command=$(anyframe-source-vagrant-list-commands -h \
+             | anyframe-selector-auto \
+             | awk '{print $1}')
+
+anyframe-source-vagrant-global-status \
+  | anyframe-selector-auto \
+  | awk '{print $1}' \
+  | anyframe-action-execute vagrant ${command}
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

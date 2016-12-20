@@ -12,14 +12,20 @@ zstyle -s ":anyframe:selector:" use selector_mode || selector_mode=''
 
 if [[ $selector_mode != 'peco' ]] &&
    [[ $selector_mode != 'percol' ]] &&
-   [[ $selector_mode != 'fzf' ]]; then
+   [[ $selector_mode != 'fzf' ]] &&
+   [[ $selector_mode != 'fzf-tmux' ]] &&
+   [[ $selector_mode != 'fzy' ]]; then
   # selector isn't specified
   if which peco > /dev/null 2>&1; then
     selector_mode='peco'
   elif which percol > /dev/null 2>&1; then
     selector_mode='percol'
+  elif which fzf-tmux > /dev/null 2>&1; then
+    selector_mode='fzf-tmux'
   elif which fzf > /dev/null 2>&1; then
     selector_mode='fzf'
+  elif which fzy > /dev/null 2>&1; then
+    selector_mode='fzy'
   else
     echo "anyframe: not found any of peco, percol, or fzf" 1>&2
     return 1
@@ -32,6 +38,10 @@ elif [[ "$selector_mode" == 'percol' ]]; then
   anyframe-selector-percol "$@"
 elif [[ "$selector_mode" == 'fzf' ]]; then
   anyframe-selector-fzf "$@"
+elif [[ "$selector_mode" == 'fzf-tmux' ]]; then
+  anyframe-selector-fzf-tmux "$@"
+elif [[ "$selector_mode" == 'fzy' ]]; then
+  anyframe-selector-fzy "$@"
 fi
 
 # Local Variables:

@@ -1,0 +1,13 @@
+local fzy_path
+zstyle -s ":anyframe:selector:fzy:" command fzy_path || fzy_path='fzy'
+
+if [[ $# -gt 0 ]]; then
+  ${=fzy_path} -q "$@"
+else
+  ${=fzy_path}
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

@@ -1,0 +1,13 @@
+local fzf_tmux_path
+zstyle -s ":anyframe:selector:fzf-tmux:" command fzf_tmux_path || fzf_tmux_path='fzf-tmux'
+
+if [[ $# -gt 0 ]]; then
+  ${=fzf_tmux_path} --query "$@"
+else
+  ${=fzf_tmux_path}
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

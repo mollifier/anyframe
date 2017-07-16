@@ -4,7 +4,7 @@
 
 ## How to set up
 
-First of all, you need to install [peco](https://github.com/peco/peco), [percol](https://github.com/mooz/percol), or [fzf](https://github.com/junegunn/fzf)
+First of all, you need to install [peco](https://github.com/peco/peco), [percol](https://github.com/mooz/percol), or [fzf](https://github.com/junegunn/fzf) (, or fzf-tmux)
 
 ### Manually install
 
@@ -93,12 +93,15 @@ require [ghq](https://github.com/motemen/ghq)
 zstyle ":anyframe:selector:" use peco
 # expressly specify to use percol
 zstyle ":anyframe:selector:" use percol
+# expressly specify to use fzf-tmux
+zstyle ":anyframe:selector:" use fzf-tmux
 # expressly specify to use fzf
 zstyle ":anyframe:selector:" use fzf
 
 # specify path and options for peco, percol, or fzf
 zstyle ":anyframe:selector:peco:" command 'peco --no-ignore-case'
 zstyle ":anyframe:selector:percol:" command 'percol --case-sensitive'
+zstyle ":anyframe:selector:fzf-tmux:" command 'fzf-tmux --extended'
 zstyle ":anyframe:selector:fzf:" command 'fzf --extended'
 ```
 

@@ -12,12 +12,15 @@ zstyle -s ":anyframe:selector:" use selector_mode || selector_mode=''
 
 if [[ $selector_mode != 'peco' ]] &&
    [[ $selector_mode != 'percol' ]] &&
+   [[ $selector_mode != 'fzf-tmux' ]] &&
    [[ $selector_mode != 'fzf' ]]; then
   # selector isn't specified
   if which peco > /dev/null 2>&1; then
     selector_mode='peco'
   elif which percol > /dev/null 2>&1; then
     selector_mode='percol'
+  elif which fzf-tmux > /dev/null 2>&1; then
+    selector_mode='fzf-tmux'
   elif which fzf > /dev/null 2>&1; then
     selector_mode='fzf'
   else
@@ -30,6 +33,8 @@ if [[ "$selector_mode" == 'peco' ]]; then
   anyframe-selector-peco "$@"
 elif [[ "$selector_mode" == 'percol' ]]; then
   anyframe-selector-percol "$@"
+elif [[ "$selector_mode" == 'fzf-tmux' ]]; then
+  anyframe-selector-fzf-tmux "$@"
 elif [[ "$selector_mode" == 'fzf' ]]; then
   anyframe-selector-fzf "$@"
 fi

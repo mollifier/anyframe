@@ -1,0 +1,9 @@
+anyframe-source-vagrant-global-status \
+  | anyframe-selector-auto \
+  | awk '{print $5}' \
+  | anyframe-action-execute cd
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

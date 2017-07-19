@@ -1,0 +1,48 @@
+# Show vagrant command lists
+# Options
+# -a show all command lists [Default]
+# -b show command lists which take a box id.
+# -h show command lists which take a host id.
+
+_show_all_commands() {
+  vagrant list-commands
+}
+
+_show_host_commands() {
+  cat << EOL
+destroy         stops and deletes all traces of the vagrant machine
+halt            stops the vagrant machine
+provision       provisions the vagrant machine
+resume          resume a suspended vagrant machine
+ssh             connects to machine via SSH
+status          outputs status of the vagrant machine
+suspend         suspends the machine
+up              starts and provisions the vagrant environment
+EOL
+}
+
+_show_box_commands() {
+  cat << EOL
+remove          deletes the vagrant box
+repackage       repackages the vagrant box
+update          updates the vagrant box
+EOL
+}
+
+while getopts 'abh' option; do
+  case $option in
+    a)
+      _show_all_commands
+      ;;
+    b)
+      _show_box_commands
+      ;;
+    h)
+      _show_host_commands
+      ;;
+  esac
+done
+
+if [ $OPTIND -eq 1 ]; then
+  _show_all_commands
+fi

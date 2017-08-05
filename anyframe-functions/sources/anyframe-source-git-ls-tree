@@ -1,0 +1,8 @@
+# anyframe-source-git-ls-tree
+
+git ls-tree -r --name-only HEAD
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

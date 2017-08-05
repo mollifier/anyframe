@@ -1,0 +1,8 @@
+anyframe-source-git-ls-tree \
+  | anyframe-selector-auto \
+  | anyframe-action-insert -q
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

@@ -1,0 +1,8 @@
+# anyframe-source-git-reflog
+
+git reflog 2>/dev/null | perl -lpe 's/^\S+\s+HEAD@\{(\d+)\}/$1/'
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

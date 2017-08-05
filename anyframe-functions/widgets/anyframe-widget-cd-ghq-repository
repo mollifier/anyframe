@@ -1,6 +1,6 @@
 anyframe-source-ghq-repository \
   | anyframe-selector-auto \
-  | anyframe-action-execute cd --
+  | anyframe-action-execute ghq look
 
 # Local Variables:
 # mode: Shell-Script

@@ -18,7 +18,7 @@ if [[ -n "$buffer" ]]; then
   fi
 fi
 
-ls -- "$dir"
+( cd -- "$dir"; git rev-parse 2>/dev/null && git ls-files -co --exclude-standard || ls )
 
 # Local Variables:
 # mode: Shell-Script

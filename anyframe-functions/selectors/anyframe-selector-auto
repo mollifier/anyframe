@@ -14,6 +14,7 @@ if [[ $selector_mode != 'peco' ]] &&
    [[ $selector_mode != 'percol' ]] &&
    [[ $selector_mode != 'fzf-tmux' ]] &&
    [[ $selector_mode != 'fzf' ]] &&
+   [[ $selector_mode != 'skim-tmux' ]] &&
    [[ $selector_mode != 'skim' ]]; then
   # selector isn't specified
   if which peco > /dev/null 2>&1; then
@@ -24,6 +25,8 @@ if [[ $selector_mode != 'peco' ]] &&
     selector_mode='fzf-tmux'
   elif which fzf > /dev/null 2>&1; then
     selector_mode='fzf'
+  elif which sk-tmux > /dev/null 2>&1; then
+    selector_mode='skim-tmux'
   elif which sk > /dev/null 2>&1; then
     selector_mode='skim'
   else
@@ -40,6 +43,8 @@ elif [[ "$selector_mode" == 'fzf-tmux' ]]; then
   anyframe-selector-fzf-tmux "$@"
 elif [[ "$selector_mode" == 'fzf' ]]; then
   anyframe-selector-fzf "$@"
+elif [[ "$selector_mode" == 'skim-tmux' ]]; then
+  anyframe-selector-skim-tmux "$@"
 elif [[ "$selector_mode" == 'skim' ]]; then
   anyframe-selector-skim "$@"
 fi

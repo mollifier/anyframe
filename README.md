@@ -4,7 +4,7 @@
 
 ## How to set up
 
-First of all, you need to install [peco](https://github.com/peco/peco), [percol](https://github.com/mooz/percol), or [fzf](https://github.com/junegunn/fzf) (, or fzf-tmux)
+First of all, you need to install [peco](https://github.com/peco/peco), [percol](https://github.com/mooz/percol), or [fzf](https://github.com/junegunn/fzf) (, or fzf-tmux), or [skim](https://github.com/lotabout/skim)
 
 ### Manually install
 
@@ -97,12 +97,15 @@ zstyle ":anyframe:selector:" use percol
 zstyle ":anyframe:selector:" use fzf-tmux
 # expressly specify to use fzf
 zstyle ":anyframe:selector:" use fzf
+# expressly specify to use skim
+zstyle ":anyframe:selector:" use skim
 
-# specify path and options for peco, percol, or fzf
+# specify path and options for peco, percol, fzf, or skim
 zstyle ":anyframe:selector:peco:" command 'peco --no-ignore-case'
 zstyle ":anyframe:selector:percol:" command 'percol --case-sensitive'
 zstyle ":anyframe:selector:fzf-tmux:" command 'fzf-tmux --extended'
 zstyle ":anyframe:selector:fzf:" command 'fzf --extended'
+zstyle ":anyframe:selector:skim:" command 'sk --interactive'
 ```
 
 ## Examples

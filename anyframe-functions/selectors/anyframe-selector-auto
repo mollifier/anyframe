@@ -1,8 +1,8 @@
 # Usage : anyframe-selector-auto [query] [options]...
-# Launch peco, percol, or fzf
+# Launch peco, percol, fzf, or skim
 #
 # query : pre-input query
-# options : specify additional options for peco, percol, or fzf
+# options : specify additional options for peco, percol, fzf or skim
 #
 # Example : anyframe-selector-auto "$LBUFFER" --initial-index 1
 
@@ -13,7 +13,8 @@ zstyle -s ":anyframe:selector:" use selector_mode || selector_mode=''
 if [[ $selector_mode != 'peco' ]] &&
    [[ $selector_mode != 'percol' ]] &&
    [[ $selector_mode != 'fzf-tmux' ]] &&
-   [[ $selector_mode != 'fzf' ]]; then
+   [[ $selector_mode != 'fzf' ]] &&
+   [[ $selector_mode != 'skim' ]]; then
   # selector isn't specified
   if which peco > /dev/null 2>&1; then
     selector_mode='peco'
@@ -23,6 +24,8 @@ if [[ $selector_mode != 'peco' ]] &&
     selector_mode='fzf-tmux'
   elif which fzf > /dev/null 2>&1; then
     selector_mode='fzf'
+  elif which sk > /dev/null 2>&1; then
+    selector_mode='skim'
   else
     echo "anyframe: not found any of peco, percol, or fzf" 1>&2
     return 1
@@ -37,6 +40,8 @@ elif [[ "$selector_mode" == 'fzf-tmux' ]]; then
   anyframe-selector-fzf-tmux "$@"
 elif [[ "$selector_mode" == 'fzf' ]]; then
   anyframe-selector-fzf "$@"
+elif [[ "$selector_mode" == 'skim' ]]; then
+  anyframe-selector-skim "$@"
 fi
 
 # Local Variables:

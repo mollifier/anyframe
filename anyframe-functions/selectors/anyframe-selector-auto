@@ -30,7 +30,7 @@ if [[ $selector_mode != 'peco' ]] &&
   elif which sk > /dev/null 2>&1; then
     selector_mode='skim'
   else
-    echo "anyframe: not found any of peco, percol, or fzf" 1>&2
+    echo "anyframe: not found any of peco, percol, fzf, or skim" 1>&2
     return 1
   fi
 fi

@@ -1,0 +1,13 @@
+local skim_tmux_path
+zstyle -s ":anyframe:selector:skim-tmux:" command skim_tmux_path || skim_tmux_path='sk-tmux'
+
+if [[ $# -gt 0 ]]; then
+  ${=skim_tmux_path} --query "$@"
+else
+  ${=skim_tmux_path}
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

@@ -1,0 +1,13 @@
+local skim_path
+zstyle -s ":anyframe:selector:skim:" command skim_path || skim_path='sk'
+
+if [[ $# -gt 0 ]]; then
+  ${=skim_path} --query "$@"
+else
+  ${=skim_path}
+fi
+
+# Local Variables:
+# mode: Shell-Script
+# End:
+# vim: ft=zsh

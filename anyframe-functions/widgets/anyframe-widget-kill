@@ -1,7 +1,7 @@
 anyframe-source-process \
   | anyframe-selector-auto \
   | awk '{print $1}' \
-  | anyframe-action-execute kill
+  | anyframe-action-execute builtin kill
 
 # Local Variables:
 # mode: Shell-Script

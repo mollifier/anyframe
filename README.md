@@ -32,6 +32,12 @@ autoload -Uz anyframe-init
 anyframe-init
 ```
 
+### Fig
+
+Install `anyframe` with [Fig](https://fig.io) in just one click.
+
+<a href="https://fig.io/plugins/other/anyframe_mollifier" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg" /></a>
+
 ### Installing using Antigen
 If you use [Antigen](https://github.com/zsh-users/antigen), add the following line to your .zshrc:
 
